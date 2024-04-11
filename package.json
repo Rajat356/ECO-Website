@@ -4,6 +4,8 @@
     "ejs": "^3.1.9",
     "express": "^4.19.2",
     "mongoose": "^8.3.0",
+    "nodemailer": "^6.9.13",
+    "otp-mailer-verifier": "^1.0.2",
     "path": "^0.12.7",
     "url": "^0.11.3"
   },
