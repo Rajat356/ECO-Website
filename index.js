@@ -97,7 +97,7 @@ app.post("/signup", async (req, res) => {
   };
 
   await transporter.sendMail(mailOptions);
-  res.render('otp',{spanText:"OTP succesfully sent!"});
+  res.render('otp',{spanText1:"",spanText2:"OTP succesfully sent!"});
 }  else {
   res.send("PASSWORDS DON'T MATCH");
 }
@@ -115,7 +115,7 @@ app.post("/OTP", async(req,res)=>{
     res.sendFile(__dirname + "/index.html");
   }
   else{
-    res.render('otp',{spanText: "Incorrect OTP!"});
+    res.render('otp',{spanText1: "Incorrect OTP!",spanText2:""});
     }
 });
 
