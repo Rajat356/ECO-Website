@@ -1,13 +1,5 @@
-export function wrong(){
-    alert("Please sign-up");
+export function wrongPassword(){
+    let message = document.getElementById("WPM");
+    message.textContent = "Wrong Password";
 }
-
-export function existing(){
-    alert("user already exists");
-}
-
-export function reEnter(){
-    alert("Password and confirm password doesn't matches");
-}
-
 

@@ -1,6 +1,6 @@
 // https://eco-website-one.vercel.app/
 
-import { existing, wrong, reEnter } from './wrong.mjs'
+import ejs from "ejs";
 import express from "express";
 // import serverless from 'serverless-http';
 import bodyParser from "body-parser";
@@ -12,6 +12,8 @@ const __dirname = dirname(fileURLToPath(
 
 const app = express();
 const port = process.env.PORT || 5500;
+
+app.set('view engine', 'ejs');
 
 mongoose.connect("mongodb://127.0.0.1:27017/ECO", { useNewUrlParser: true });
 
@@ -36,19 +38,32 @@ app.use(express.static(__dirname));
 app.post("/login", async (req, res) => {
   const user = await User.findOne({ email: req.body["email"] }).exec();
   if (user) {
-    if (req.body["password"] == user.password)
+    if (req.body["password"] == user.password) {
       res.sendFile(__dirname + "/index.html");
-    else
-      res.send("WRONG PASSWORD");
+    }
+    else {
+      res.render('index', {
+        existingText: "",
+        spanText: "Wrong Password!"
+      });
+    }
   }
   else
-    res.sendFile(__dirname + "/log/signlog.html");
+  {
+    res.render('index', {
+      existingText: "",
+      spanText: "User doesn't exists! Please sign-up."
+    });
+  }
 })
 
 app.post("/signup", async (req, res) => {
   const existing = await User.findOne({ email: req.body["email"] }).exec();
   if (existing) {
-    res.send(`${existing}`);
+    res.render('index', {
+      spanText: "E-mail ID already registered. Please login",
+    });
+    // res.send("User already exists!");
   }
   else if (req.body["password"] == req.body["conf_password"]) {
     const newUser = new User({
