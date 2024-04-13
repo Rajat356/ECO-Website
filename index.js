@@ -12,7 +12,7 @@ const __dirname = dirname(fileURLToPath(
   import.meta.url));
 
 const app = express();
-const port = process.env.PORT;
+const port = process.env.PORT || 5500;
 const senderMail = "ecoverse24@gmail.com";
 const password = "qcxs lfxl iyfl witc";
 let otp="";
