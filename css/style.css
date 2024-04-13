@@ -22,6 +22,7 @@
   --dark: #3D464D;
   --theme1: #68B031;
   --theme2: #6C757D;
+  --theme3: #FBF3EE;
   --breakpoint-xs: 0;
   --breakpoint-sm: 576px;
   --breakpoint-md: 768px;
@@ -2373,8 +2374,9 @@ fieldset:disabled a.btn {
 
 .btn-primary {
   color: #212529;
-  background-color: #FFD333;
-  border-color: #FFD333;
+  border-radius: 5px;
+  background-color: var(--theme1);
+  border-color: var(--theme1);
 }
 
 .btn-primary:hover {
@@ -6112,7 +6114,7 @@ button.bg-primary:focus {
 }
 
 .bg-secondary {
-  background-color: #F5F5F5 !important;
+  background-color: var(--theme3) !important;
 }
 
 a.bg-secondary:hover, a.bg-secondary:focus,
