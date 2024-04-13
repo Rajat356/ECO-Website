@@ -1,4 +1,4 @@
-// https://eco-website-one.vercel.app/
+// https://eco-website-y698.onrender.com/
 
 import ejs from "ejs";
 import nodemailer from 'nodemailer';
@@ -23,7 +23,7 @@ let userPassword="";
 app.set('view engine', 'ejs');
 
 // mongoose.connect("mongodb://127.0.0.1:27017/ECO", { useNewUrlParser: true });
-mongoose.connect("mongodb://127.0.0.1:27017/ECO", { useNewUrlParser: true, useUnifiedTopology: true});
+mongoose.connect("mongodb://127.0.0.1/ECO", { useNewUrlParser: true, useUnifiedTopology: true});
 
 const userSchema = new mongoose.Schema({
   email: {
