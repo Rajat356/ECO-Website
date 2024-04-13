@@ -6114,7 +6114,7 @@ button.bg-primary:focus {
 }
 
 .bg-secondary {
-  background-color: var(--theme3) !important;
+  background-color: #F5F5F5 !important;
 }
 
 a.bg-secondary:hover, a.bg-secondary:focus,
@@ -6164,7 +6164,7 @@ button.bg-danger:focus {
 }
 
 .bg-light {
-  background-color: #FFFFFF !important;
+  background-color: var(--theme3) !important;
 }
 
 a.bg-light:hover, a.bg-light:focus,
