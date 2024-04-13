@@ -12,7 +12,7 @@ const __dirname = dirname(fileURLToPath(
   import.meta.url));
 
 const app = express();
-const port = process.env.PORT || 5500;
+const port = process.env.PORT;
 const senderMail = "ecoverse24@gmail.com";
 const password = "qcxs lfxl iyfl witc";
 let otp="";
@@ -22,7 +22,8 @@ let userPassword="";
 
 app.set('view engine', 'ejs');
 
-mongoose.connect("mongodb://127.0.0.1:27017/ECO", { useNewUrlParser: true });
+// mongoose.connect("mongodb://127.0.0.1:27017/ECO", { useNewUrlParser: true });
+mongoose.connect("mongodb://127.0.0.1:27017/ECO", { useNewUrlParser: true, useUnifiedTopology: true});
 
 const userSchema = new mongoose.Schema({
   email: {
@@ -77,10 +78,8 @@ app.post("/signup", async (req, res) => {
     userEmail = req.body.email;
     userPassword = req.body.password;
 
-  // Generate a random OTP
   otp = Math.floor(100000 + Math.random() * 900000);
 
-  // Send the OTP to the user's email address
   const transporter = nodemailer.createTransport({
     service: 'gmail',
     auth: {
